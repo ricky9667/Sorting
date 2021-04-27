@@ -22,7 +22,6 @@ int main()
     // ios::sync_with_stdio(0), cin.tie(0);
     int n;
     int arr[1000001];
-    vector<int> v;
 
     cout << "Input n: ";
     cin >> n;
@@ -36,6 +35,6 @@ int main()
 
     for (int i = 0; i < n; i++)
         cout << arr[i] << " ";
-    puts("");
+    cout << endl;
     return 0;
 }
