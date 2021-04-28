@@ -5,28 +5,33 @@ void quick_sort(int *a, int n)
 {
     if (n <= 1)
         return;
-
-    int l = 1, r = n - 1, temp;
-    while (true)
+    if (n == 2)
     {
-        while (a[l] <= a[0] && l < r)
-            l++;
-        while (a[r] >= a[0] && l < r)
-            r--;
-        if (l == r)
-            break;
-        temp = a[l];
-        a[l] = a[r];
-        a[r] = temp;
+        if (a[0] > a[1])
+        {
+            int temp = a[0];
+            a[0] = a[1];
+            a[1] = temp;
+        }
+        return;
     }
 
-    // l == r == pivot
-    temp = a[l];
-    a[l] = a[0];
-    a[0] = temp;
+    cout << "Partition n = " << n << endl;
+    int i = -1, end = n - 1;
+    for (int j = 0; j < n; j++)
+    {
+        if (a[j] <= a[end])
+        {
+            i++;
+            int temp = a[i];
+            a[i] = a[j];
+            a[j] = temp;
+        }
+    }
+    cout << "pivot = " << i << endl;
 
-    quick_sort(a, l - 1);
-    quick_sort(a + (l + 1), n - l);
+    quick_sort(a, i);
+    quick_sort(a + (i + 1), n - i - 1);
 }
 
 int main()
