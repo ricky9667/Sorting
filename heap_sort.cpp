@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-void max_heapify(int *arr, int n)
+void max_heapify(int *a, int n)
 {
     int index = 2;
     while (index * 2 <= n)
@@ -13,38 +13,38 @@ void max_heapify(int *arr, int n)
         {
             int k;
             if (i + 1 <= n)
-                k = arr[i] >= arr[i + 1] ? i : i + 1;
+                k = a[i] >= a[i + 1] ? i : i + 1;
             else
                 k = i;
 
-            if (arr[k] > arr[i / 2])
+            if (a[k] > a[i / 2])
             {
-                int temp = arr[k];
-                arr[k] = arr[i / 2];
-                arr[i / 2] = temp;
+                int temp = a[k];
+                a[k] = a[i / 2];
+                a[i / 2] = temp;
             }
         }
         index >>= 1;
     }
 }
 
-void heap_sort(int *arr, int n)
+void heap_sort(int *a, int n)
 {
     if (n <= 1)
         return;
 
-    max_heapify(arr - 1, n);
+    max_heapify(a - 1, n);
 
-    int temp = arr[0];
-    arr[0] = arr[n - 1];
-    arr[n - 1] = temp;
+    int temp = a[0];
+    a[0] = a[n - 1];
+    a[n - 1] = temp;
 
-    heap_sort(arr, n - 1);
+    heap_sort(a, n - 1);
 }
 
 int main()
 {
-    // ios::sync_with_stdio(0), cin.tie(0);
+    ios::sync_with_stdio(0), cin.tie(0);
     int n;
     int arr[1000001];
 

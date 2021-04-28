@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-void merge_sort(int *arr, int n)
+void merge_sort(int *a, int n)
 {
     if (n == 1)
         return;
@@ -12,38 +12,39 @@ void merge_sort(int *arr, int n)
 
     int left[l_size];
     for (int p = 0; p < l_size; p++)
-        left[p] = arr[p];
+        left[p] = a[p];
     merge_sort(left, l_size);
 
     int right[r_size];
     for (int p = 0; p < r_size; p++)
-        right[p] = arr[p + l_size];
+        right[p] = a[p + l_size];
     merge_sort(right, r_size);
 
+    // merge
     int i = 0, j = 0;
     while (i < l_size || j < r_size)
     {
         if (j >= r_size)
         {
-            arr[i + j] = left[i];
+            a[i + j] = left[i];
             i++;
             continue;
         }
         if (i >= l_size)
         {
-            arr[i + j] = right[j];
+            a[i + j] = right[j];
             j++;
             continue;
         }
         if (j >= r_size || left[i] <= right[j])
         {
-            arr[i + j] = left[i];
+            a[i + j] = left[i];
             i++;
             continue;
         }
         if (i >= l_size || left[i] > right[j])
         {
-            arr[i + j] = right[j];
+            a[i + j] = right[j];
             j++;
             continue;
         }
