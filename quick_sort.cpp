@@ -5,18 +5,18 @@ void quick_sort(int *a, int n)
 {
     if (n <= 1)
         return;
-    if (n == 2)
-    {
-        if (a[0] > a[1])
-        {
-            int temp = a[0];
-            a[0] = a[1];
-            a[1] = temp;
-        }
-        return;
-    }
+    // if (n == 2)
+    // {
+    //     if (a[0] > a[1])
+    //     {
+    //         int temp = a[0];
+    //         a[0] = a[1];
+    //         a[1] = temp;
+    //     }
+    //     return;
+    // }
 
-    cout << "Partition n = " << n << endl;
+    // partition
     int i = -1, end = n - 1;
     for (int j = 0; j < n; j++)
     {
@@ -28,8 +28,8 @@ void quick_sort(int *a, int n)
             a[j] = temp;
         }
     }
-    cout << "pivot = " << i << endl;
 
+    // pivot = i
     quick_sort(a, i);
     quick_sort(a + (i + 1), n - i - 1);
 }
