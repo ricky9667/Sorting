@@ -5,16 +5,6 @@ void quick_sort(int *a, int n)
 {
     if (n <= 1)
         return;
-    // if (n == 2)
-    // {
-    //     if (a[0] > a[1])
-    //     {
-    //         int temp = a[0];
-    //         a[0] = a[1];
-    //         a[1] = temp;
-    //     }
-    //     return;
-    // }
 
     // partition
     int i = -1, end = n - 1;
